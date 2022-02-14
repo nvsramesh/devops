@@ -12,5 +12,10 @@ pipeline {
                 
             }
         }
+        stage('removing file') {
+            steps {
+                sh 'cd /home/ubuntu/workspace/pipeline-job ; sudo rm -rf test.html'
+            }
+        }
     }
 }
