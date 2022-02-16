@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'buildserver'
+        label 'slavenode'
     }
     stages {
         stage('checkout') {
@@ -14,7 +14,9 @@ pipeline {
         }
         stage('removing file') {
             steps {
+                node('slavenode2'){
                 sh 'cd /home/ubuntu/workspace/pipeline-job ; sudo rm -rf test.html'
+                }
             }
         }
     }
